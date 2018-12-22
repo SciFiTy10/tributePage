@@ -1,0 +1,64 @@
+**Reflections on my Jeff Bezos tribute page project**
+
+1. Overview
+
+For my first time building a project using a DVCS like Git, I thought things
+went very well! I wanted to simulate what it would be like to develop on a team,
+so I elected to follow the model developed by Vincent Driessen. A description of
+this model can be found below:
+
+https://nvie.com/posts/a-successful-git-branching-model/
+
+In this model, a master (production ready) branch is kept untouched (unless a hotfix
+is needed), and all new changes are developed on a "develop" branch. Additionally,
+I created new branches off of the develop branch to handle feature development,
+such as the image and tribute information sections of the page.
+
+After satisfying the requirements of all of the user stories, I prepared a "release"
+branch which was merged into the master branch and then tagged.
+
+Lastly, the master branch was then merged back into the develop branch to keep
+that branch current.
+
+This reflections.txt file was created post release, and will be included in a
+new release to be merged into master. I debated on whether to treat this as a
+hotfix branch for some practice on those, but I don't want to form a bad habit.
+I'd prefer to do the right thing and create a hotfix branch when a critical bug
+forms in a production release.
+
+2. Mistakes
+
+During my first merge which took the feature/img branch and merged it into develop,
+I was still learning about fast forward merges and 3 way merges. I performed a 3
+way merge, but didn't lay this out specifically in my commit message.
+
+I was bothered by the fact I didn't explicitly say I "3 way merged" so I did some
+studying online, and learned that I could perform an amend commit (which I did.)
+When I double checked my graph of commits, I was worried that I was piling on further
+issues with my project, so I studied whether I should be pushing an amend commit
+to my remote repository from my local repository. Everything I read made me believe
+this was a bad idea, so I decided to undo my amend commit.
+
+This was great, because it taught me how to properly go backwards a commit. I did
+this by running the following command:
+
+git reset --soft HEAD~1
+
+I ended up removing those staged changes, so I suppose I could have ran "--hard"
+instead of "--soft", but it was great practice.
+
+3. Things to improve on
+
+I'm very happy with my progress using git so far and I am looking forward to tightening
+up one small detail about using it. I didn't delete my feature branches after merging
+them (partly because I was afraid of losing critical progress).
+
+I now know that once merged, this is not an issue, and leaving them will only clog up
+my branch list when I run "git branch" or "git branch -a"
+
+4. Feedback
+
+To any kind readers who have suggestions after seeing my project, or reading these
+reflections, please do not hesitate to provide any criticism that may improve my
+software development going forward. I am always trying to improve with each project
+and I hope to do so by making less and less mistakes.
